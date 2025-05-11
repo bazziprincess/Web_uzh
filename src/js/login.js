@@ -11,9 +11,14 @@ function setValid(element) {
  * Set the form control element to invalid with the error message
  * @param {object} element - The DOM element
  */
-function setInvalid(element) {
+function setInvalid(element, message = '') {
     element.classList.remove('is-valid');
     element.classList.add('is-invalid');
+
+    const feedback = element.nextElementSibling;
+    if (feedback && feedback.classList.contains('invalid-feedback')) {
+        feedback.textContent = message;
+    }
 }
 
 /**
@@ -37,29 +42,32 @@ function login(event) {
 
     var email = document.getElementById('login-email-control');
     if (email.validity.valid) {
-        setValid(email);
+        setValid(email,'Please enter an email address');
     } else if (email.validity.valueMissing) {
-        setInvalid(email);
+        setInvalid(email,'Please enter an email address');
         hasError = true;
     } else {
-        setInvalid(email);
+        setInvalid(email,'Please enter an email address');
         hasError = true;
     }
 
     var password = document.getElementById('login-password-control');
     if (password.value.trim().length == 0) {
-        setInvalid(password);
+        setInvalid(password,'Please enter a password');
         hasError = true;
     } else {
-        setValid(password);
+        setValid(password,'Please enter a password');
     }
 
+    const loginErrorBox = document.getElementById('login-error');
+    loginErrorBox.innerHTML = '';
     if (hasError) {
-        document.getElementById('login-error').classList.remove('d-none');
+        const alertText = document.createElement('div');
+        alertText.textContent = 'Please correct the error(s)';
+        loginErrorBox.appendChild(alertText);
     } else {
-        document.getElementById('login-error').classList.add('d-none');
-    }
-}
+        loginErrorBox.innerHTML = '';
+    }}
 
 /**
  * Validate the login form and try to retrieve the password
@@ -104,10 +112,10 @@ function register(event) {
 
     var firstName = document.getElementById('register-first-name-control');
     if (firstName.value.trim().length == 0) {
-        setInvalid(firstName);
+        setInvalid(firstName, 'Please enter your first name');
         hasError = true;
     } else if (firstName.validity.valid) {
-        setValid(firstName);
+        setValid(firstName,'Please enter an email address');
     }
 
     var lastName = document.getElementById('register-last-name-control');
@@ -120,48 +128,52 @@ function register(event) {
 
     var email = document.getElementById('register-email-control');
     if (email.validity.valid) {
-        setValid(email);
+        setValid(email,'Please enter an email address');
     } else if (email.validity.valueMissing) {
-        setInvalid(email);
+        setInvalid(email,'Please enter an email address');
         hasError = true;
     } else {
-        setInvalid(email);
+        setInvalid(emai,'Please enter an email address');
         hasError = true;
     }
 
     var password = document.getElementById('register-password-control');
     var passwordValue = password.value.trim();
     if (passwordValue.length < 8) {
-        setInvalid(password);
+        setInvalid(password,'Password must be at least 8 characters');
         hasError = true;
     } else if (passwordValue.length > 16) {
-        setInvalid(password);
+        setInvalid(password),'Password must be at least 8 characters';
         hasError = true;
     } else if (passwordValue.match(/[a-zA-Z]+/) == null) {
-        setInvalid(password);
+        setInvalid(password,'Password must be at least 8 characters');
         hasError = true;
     } else if (passwordValue.match(/[0-9]+/) == null) {
-        setInvalid(password);
+        setInvalid(password,'Password must be at least 8 characters');
         hasError = true;
     } else {
-        setValid(password);
+        setValid(password,'Password must be at least 8 characters');
     }
 
     var programme = document.getElementById('register-programme-control');
     if (programme.validity.valueMissing) {
-        setInvalid(programme);
+        setInvalid(programme,'Please select a programme');
         hasError = true;
     } else if (!programme.validity.valid) {
-        setInvalid(programme);
+        setInvalid(programme,'Please select a programme');
         hasError = true;
     } else {
-        setValid(programme);
+        setValid(programme,'Please select a programme');
     }
 
+    const registerErrorBox = document.getElementById('register-error');
     if (hasError) {
-        document.getElementById('register-error').classList.remove('d-none');
+        registerErrorBox.innerHTML = '';
+        const alertText = document.createElement('div');
+        alertText.textContent = 'Please correct the error(s)';
+        registerErrorBox.appendChild(alertText);
     } else {
-        document.getElementById('register-error').classList.add('d-none');
+        registerErrorBox.innerHTML = '';
     }
 }
 
