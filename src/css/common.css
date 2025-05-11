@@ -10,16 +10,17 @@ html {
 body a,
 body div,
 body p {
-    color: #dfdfdf
+    color: #3A514D
 }
 
 body a:hover {
-    color: #cdcdcd
+    color: #000000
 }
 
 .title {
     font-size: 2rem;
-    font-weight: 100
+    font-weight: 400
+
 }
 
 .subtitle {
@@ -33,7 +34,8 @@ body a:hover {
 
 .header .title {
     font-size: 1.5rem;
-    line-height: 1.8rem
+    line-height: 1.8rem;
+    font-weight: 500
 }
 
 .header .font-increase-button,
@@ -54,23 +56,4 @@ body a:hover {
 
 .main {
     flex: 1 0 auto
-}
-
-/*  Skip links  */
-.skip-link{
-  position: fixed;
-  left: -999px;
-  top: -999px;
-  background:#fff;
-  color:#000;
-  padding:.5rem 1rem;
-  border:2px solid #000;
-  border-radius:.25rem;
-  z-index: 1000;
-}
-
-.skip-link:focus{
-  left:1rem;
-  top:1rem;
-  outline:none;
 }

@@ -17,7 +17,7 @@
         <a href="#main" class="skip-link">Skip to content</a>
         <a href="#footer" class="skip-link">Skip to footer</a>
     </div>
-    <div class="container-fluid d-none d-lg-block my-4 header">
+    <header class="container-fluid d-none d-lg-block my-4 header">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-8 media">
@@ -29,18 +29,26 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="btn-toolbar justify-content-end">
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-dark font-increase-button" id="font-increase-button">A+</button>
-                            <button class="btn btn-dark font-decrease-button" id="font-decrease-button">A-</button>
+                    <div class="btn-toolbar justify-content-end"  role="toolbar" aria-label="toolbar to modify font">
+                        <div class="btn-group btn-group-sm"  role="group" aria-label="control font size">
+                            <button class="btn btn-dark font-increase-button"
+                                    id="font-increase-button"
+                                    aria-label="increase font size"
+                                    title="increase font size"
+                            >A+</button>
+                            <button class="btn btn-dark font-decrease-button"
+                                    id="font-decrease-button"
+                                    aria-label="decrease font size"
+                                    title="decrease font size"
+                            >A-</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="container-fluid bg-dark nav">
+    <nav class="container-fluid bg-dark nav">
         <div class="container">
             <nav class="navbar navbar-dark bg-dark navbar-expand-lg px-0"
                  id="navigation">
@@ -154,9 +162,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="container main" id="main">
+    <main class="container main" id="main">
         <div class="row no-gutters">
             <div class="col-12 col-lg-6">
                 <div class="p-4 mt-4 mr-lg-3 bg-white news">
@@ -254,9 +262,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <div class="container-fluid bg-dark mt-4 footer" id="footer">
+    <footer class="container-fluid bg-dark mt-4 footer" id="footer">
         <div class="container text-center py-3">
             <div class="row justify-content-around">
                 <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=About">About</a>
@@ -266,7 +274,7 @@
                 <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=Privacy+policy">Privacy policy</a>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script type="text/javascript" src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/popper.js"></script>
