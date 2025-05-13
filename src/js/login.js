@@ -120,10 +120,10 @@ function register(event) {
 
     var lastName = document.getElementById('register-last-name-control');
     if (lastName.value.trim().length == 0) {
-        setInvalid(lastName);
+        setInvalid(lastName, 'Please enter your last name');
         hasError = true;
     } else if (lastName.validity.valid) {
-        setValid(lastName);
+        setValid(lastName, 'Please enter your last name');
     }
 
     var email = document.getElementById('register-email-control');
